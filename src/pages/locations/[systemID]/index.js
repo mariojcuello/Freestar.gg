@@ -38,6 +38,7 @@ const SystemDetails = (props) => {
                 planetID: planet.planetSlug,
               },
             }}
+            key={planet.name}
           >
             {planet.name}
           </Link>

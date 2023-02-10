@@ -20,7 +20,6 @@ const Navbar = () => {
   ]
 
   const router= useRouter();
-  console.log(router.pathname)
 
   return (
     
