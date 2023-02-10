@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/router';
 import  { GetStaticPaths } from 'next'
 import Link from 'next/link';
+import MainWrapper from '@/components/ui/MainWrapper';
+import Heading from '@/components/ui/Heading';
 
 const DEMO_PLANET = {
     name: 'Earth',
@@ -18,52 +20,52 @@ const DEMO_PLANET = {
 const PlanetDetails = (props) => {
 
     return (
-    <div className="container mx-auto">
-        <div className="max-w-[85rem] px-8 mt-9 mb-2 lg:px-8 lg:mt-14 mx-auto">
-            <h1 className="md:text-4xl text-2xl font-bold">Galaxy Map</h1>
-            <h2>{DEMO_PLANET.name}</h2>
+    <MainWrapper>
+        <Heading>{DEMO_PLANET.name}</Heading>
             <h2>Star System: 
                 <Link href={{
                     pathname: "/locations/[systemID]",
-                    query: { systemID: DEMO_PLANET.systemSlug }
+                    query: { systemID: props.systemSlug }
                 }}>{DEMO_PLANET.system}</Link>  
             </h2>
             <p>Mass: {DEMO_PLANET.mass}</p>
             <p>Temperature: {DEMO_PLANET.temperature}</p>
-        </div>
-    </div>    
+    </MainWrapper>  
     )
 }
 
-// export async function getStaticPaths(){
-//     return {
-//         fallback: false,
-//         paths: [
-//             { params: { planetID: 'earth'}},
+export async function getStaticPaths(){
+    return {
+        fallback: false,
+        paths: [
+            { params: { 
+                systemID: 'sol',
+                planetID: 'earth'
+            }},
 
-//         ],
-//     }   
-// }
+        ],
+    }   
+}
 
-// export async function getStaticProps(context) {
-// //use getServerSideProps if you need access to the req and res objects
+export async function getStaticProps(context) {
     
-//     // const systemID = context.params.systemID
-//     // console.log(systemID)
+    const { params } = context
+    const planetID = params.planetID
 
-//     let { data } = await supabase.from('systems-test').select('*').eq('id', 1).single();
+    const { data: planets } = await supabase.from('planets_test').select('*').eq('planetSlug', planetID)
 
-//     return {
-//         props: {
-//             systemData: {
-//                 name: 'Sol',
-//                 mass: '10,000lb',
-//                 temperature: '10,000K'
-//             }
-//         },
-//         revalidate: 3600
-//     }
-// }
+
+    return {
+        props: {
+            name: planets[0].name,
+            planetSlug: planets[0].planetSlug,
+            system: planets[0].system,
+            systemSlug: planets[0].systemSlug,
+            mass: planets[0].mass,
+        },
+        revalidate: 3600
+    }
+}
 
 export default PlanetDetails
 

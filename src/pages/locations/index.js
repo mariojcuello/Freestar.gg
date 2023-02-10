@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { supabase } from "../api/supabase";
 import { useRouter } from "next/router";
+import MainWrapper from "@/components/ui/MainWrapper";
+import Heading from "@/components/ui/Heading";
 
 const POPULAR_SYSTEMS = [
   { name: "Sol", systemSlug: "sol", planets: 8, moons: 12 },
@@ -8,14 +10,10 @@ const POPULAR_SYSTEMS = [
   { name: "Narion", systemSlug: "proxima-centauri", planets: 2, moons: 4 },
 ];
 
-
-
 const SystemPage = () => {
   return (
-    <div className="container mx-auto">
-      <div className="max-w-[85rem] px-8 mt-9 mb-2 lg:px-8 lg:mt-8 mx-auto">
-        <h1 className="md:text-3xl text-2xl font-bold mb-8">Popular Systems</h1>
-      </div>
+    <MainWrapper>
+      <Heading>Popular Systems</Heading>
       <div className="max-w-[85rem] flex flex-nowrap justify-center gap-10 px-8 mt-9 mb-2 lg:px-8 lg:mt-8 mx-auto">
         {POPULAR_SYSTEMS.map((system) => (
           <Link
@@ -47,7 +45,7 @@ const SystemPage = () => {
           </Link>
         ))}
       </div>
-    </div>
+    </MainWrapper>
   );
 };
 
