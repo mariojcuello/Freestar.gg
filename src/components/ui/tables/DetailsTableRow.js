@@ -1,0 +1,9 @@
+const DetailsTableRow = (props) => {
+  return (
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+      {props.children}
+    </tr>
+  );
+};
+
+export default DetailsTableRow;
