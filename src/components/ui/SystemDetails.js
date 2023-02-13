@@ -3,8 +3,8 @@ import DetailsTableHead from "./tables/DetailsTableHead";
 import DetailsTableData from "./tables/DetailsTableData";
 
 const SystemDetails = (props) => {
-  return (
-    <div class="relative overflow-x-auto max-w-sm">
+    return (
+     <div class="relative overflow-x-auto max-w-sm">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <tbody>
           <DetailsTableRow>

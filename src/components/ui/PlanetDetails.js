@@ -1,57 +1,44 @@
+import DetailsTableRow from "./tables/DetailsTableRow";
+import DetailsTableHead from "./tables/DetailsTableHead";
+import DetailsTableData from "./tables/DetailsTableData";
+
 const PlanetDetails = (props) => {
-  return (
-    <div class="relative overflow-x-auto">
+    return (
+     <div class="relative overflow-x-auto max-w-sm">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            <th scope="col" class="px-6 py-3">
-              Product name
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Color
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Category
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Price
-            </th>
-          </tr>
-        </thead>
         <tbody>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Apple MacBook Pro 17"
-            </th>
-            <td class="px-6 py-4">Sliver</td>
-            <td class="px-6 py-4">Laptop</td>
-            <td class="px-6 py-4">$2999</td>
-          </tr>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Microsoft Surface Pro
-            </th>
-            <td class="px-6 py-4">White</td>
-            <td class="px-6 py-4">Laptop PC</td>
-            <td class="px-6 py-4">$1999</td>
-          </tr>
-          <tr class="bg-white dark:bg-gray-800">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Magic Mouse 2
-            </th>
-            <td class="px-6 py-4">Black</td>
-            <td class="px-6 py-4">Accessories</td>
-            <td class="px-6 py-4">$99</td>
-          </tr>
+          <DetailsTableRow>
+            <DetailsTableHead>Spectral Class</DetailsTableHead>
+            <DetailsTableData>{props.planet.class}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Catalog ID</DetailsTableHead>
+            <DetailsTableData>{props.planet.catalog}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Temperature</DetailsTableHead>
+            <DetailsTableData>{props.planet.temperature}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Mass</DetailsTableHead>
+            <DetailsTableData>{props.planet.mass}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Radius</DetailsTableHead>
+            <DetailsTableData>{props.planet.radius}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Magnitude</DetailsTableHead>
+            <DetailsTableData>{props.planet.magnitude}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Number of Moons</DetailsTableHead>
+            <DetailsTableData>{props.planet.moonCount}</DetailsTableData>
+          </DetailsTableRow>
+          <DetailsTableRow>
+            <DetailsTableHead>Number of Outposts</DetailsTableHead>
+            <DetailsTableData>{props.planet.outpostCount}</DetailsTableData>
+          </DetailsTableRow>
         </tbody>
       </table>
     </div>

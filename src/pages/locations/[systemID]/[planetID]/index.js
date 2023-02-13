@@ -6,6 +6,7 @@ import { GetStaticPaths } from "next";
 import Link from "next/link";
 import MainWrapper from "@/components/ui/MainWrapper";
 import Heading from "@/components/ui/Heading";
+import CrumbsPlanet from "@/components/ui/breadcrumbs/CrumbsPlanet";
 
 const DEMO_PLANET = {
   name: "Earth",
@@ -20,7 +21,7 @@ const DEMO_PLANET = {
 const Planet = (props) => {
   return (
     <MainWrapper>
-      <Heading>{DEMO_PLANET.name}</Heading>
+      <CrumbsPlanet system={props.system} systemSlug={props.systemSlug} planet={props.name} planetSlug={props.planetSlug}></CrumbsPlanet>
       <h2>
         Star System:
         <Link
@@ -29,7 +30,7 @@ const Planet = (props) => {
             query: { systemID: props.systemSlug },
           }}
         >
-          {DEMO_PLANET.system}
+          {props.system}
         </Link>
       </h2>
       <p>Mass: {DEMO_PLANET.mass}</p>
