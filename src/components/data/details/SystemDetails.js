@@ -1,10 +1,11 @@
-import DetailsTableRow from "./tables/DetailsTableRow";
-import DetailsTableHead from "./tables/DetailsTableHead";
-import DetailsTableData from "./tables/DetailsTableData";
+import DetailsTableRow from "../tables/DetailsTableRow";
+import DetailsTableHead from "../tables/DetailsTableHead";
+import DetailsTableData from "../tables/DetailsTableData";
+import DetailsTableWrapper from "../tables/DetailsTableWrapper";
 
 const SystemDetails = (props) => {
     return (
-     <div class="relative overflow-x-auto max-w-sm">
+     <DetailsTableWrapper>
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <tbody>
           <DetailsTableRow>
@@ -32,20 +33,20 @@ const SystemDetails = (props) => {
             <DetailsTableData>{props.system.magnitude}</DetailsTableData>
           </DetailsTableRow>
           <DetailsTableRow>
-            <DetailsTableHead>Number of Planets</DetailsTableHead>
+            <DetailsTableHead>Planets</DetailsTableHead>
             <DetailsTableData>{props.system.planetCount}</DetailsTableData>
           </DetailsTableRow>
           <DetailsTableRow>
-            <DetailsTableHead>Number of Moons</DetailsTableHead>
+            <DetailsTableHead>Moons</DetailsTableHead>
             <DetailsTableData>{props.system.moonCount}</DetailsTableData>
           </DetailsTableRow>
           <DetailsTableRow>
-            <DetailsTableHead>Number of Outposts</DetailsTableHead>
+            <DetailsTableHead>Outposts</DetailsTableHead>
             <DetailsTableData>{props.system.outpostCount}</DetailsTableData>
           </DetailsTableRow>
         </tbody>
       </table>
-    </div>
+    </DetailsTableWrapper>
   );
 };
 

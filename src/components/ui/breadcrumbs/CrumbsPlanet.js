@@ -9,10 +9,10 @@ const CrumbsPlanet = (props) => {
           query: { systemID: props.systemSlug },
         }}
       >
-        <h1 className="md:text-4xl text-3xl  mb-4">{props.system}</h1>
+        <h1 className="md:text-4xl text-3xl  mb-2">{props.system}</h1>
       </Link>
-      <h1 className="md:text-4xl text-3xl  mb-4"> &nbsp;-&nbsp;</h1>
-      <h1 className="md:text-4xl text-3xl font-extrabold mb-4">
+      <h1 className="md:text-4xl text-3xl  mb-2"> &nbsp;-&nbsp;</h1>
+      <h1 className="md:text-4xl text-3xl font-extrabold mb-2">
         {props.planet}
       </h1>
     </div>

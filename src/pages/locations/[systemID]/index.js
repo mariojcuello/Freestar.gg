@@ -1,10 +1,11 @@
 "use client";
 import { supabase } from "@/pages/api/supabase";
-import MainWrapper from "@/components/ui/MainWrapper";
+import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
-import PlanetCards from "@/components/ui/PlanetCards";
-import ContentWrapper from "@/components/ui/ContentWrapper";
-import SystemDetails from '@/components/ui/SystemDetails'
+import PlanetMiniCard from "@/components/ui/cards/PlanetMiniCards";
+import ContentWrapper from "@/components/wrappers/ContentWrapper";
+import SystemDetails from "@/components/data/details/SystemDetails";
+import MiniCardsWrapper from "@/components/wrappers/MiniCardsWrapper";
 
 const System = (props) => {
   return (
@@ -12,7 +13,11 @@ const System = (props) => {
       <Heading>{props.name}</Heading>
       <ContentWrapper>
         <SystemDetails system={props} />
-        <PlanetCards planets={props.planets} system={props.systemSlug} />
+        <MiniCardsWrapper>
+          {props.planets.map((planet) => (
+            <PlanetMiniCard planet={planet} />
+          ))}
+        </MiniCardsWrapper>
       </ContentWrapper>
     </MainWrapper>
   );

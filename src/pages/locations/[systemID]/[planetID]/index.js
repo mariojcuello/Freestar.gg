@@ -4,9 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { GetStaticPaths } from "next";
 import Link from "next/link";
-import MainWrapper from "@/components/ui/MainWrapper";
+import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import CrumbsPlanet from "@/components/ui/breadcrumbs/CrumbsPlanet";
+import ContentWrapper from "@/components/wrappers/ContentWrapper";
+import PlanetDetails from "@/components/data/details/PlanetDetails";
 
 const DEMO_PLANET = {
   name: "Earth",
@@ -22,19 +24,9 @@ const Planet = (props) => {
   return (
     <MainWrapper>
       <CrumbsPlanet system={props.system} systemSlug={props.systemSlug} planet={props.name} planetSlug={props.planetSlug}></CrumbsPlanet>
-      <h2>
-        Star System:
-        <Link
-          href={{
-            pathname: "/locations/[systemID]",
-            query: { systemID: props.systemSlug },
-          }}
-        >
-          {props.system}
-        </Link>
-      </h2>
-      <p>Mass: {DEMO_PLANET.mass}</p>
-      <p>Temperature: {DEMO_PLANET.temperature}</p>
+      <ContentWrapper>
+        <PlanetDetails planet={props} />
+      </ContentWrapper>
     </MainWrapper>
   );
 };
@@ -67,7 +59,17 @@ export async function getStaticProps(context) {
       planetSlug: planets[0].planetSlug,
       system: planets[0].system,
       systemSlug: planets[0].systemSlug,
-      mass: planets[0].mass,
+      type: planets[0].type,
+      gravity: planets[0].gravity,
+      temperature: planets[0].temperature,
+      atmosphere: planets[0].atmosphere,
+      magnetosphere: planets[0].magnetosphere,
+      fauna: planets[0].fauna,
+      flora: planets[0].flora,
+      water: planets[0].water,
+      faction: planets[0].faction,
+      moonCount: planets[0].moonCount,
+      outpostCount: planets[0].outpostCount,
     },
     revalidate: 3600,
   };

@@ -1,13 +1,16 @@
+import HomeGrid from "@/components/ui/HomeGrid";
 import Heading from "@/components/ui/Heading";
-import MainWrapper from "@/components/ui/MainWrapper"
-import HomeCards from "../components/ui/HomeCards"
-import Search from "../components/ui/Search"
+import ContentWrapper from "@/components/wrappers/ContentWrapper";
+import HomeCardWrapper from "@/components/wrappers/HomeCardWrapper";
+import MainWrapper from "@/components/wrappers/MainWrapper"
+import HomeCards from "../components/ui/cards/HomeCards"
 
 export default function Home() {
   return (
     <MainWrapper>
-      <Heading>Freestar</Heading>
-      <HomeCards/>
+      <ContentWrapper>
+        <HomeGrid></HomeGrid>
+      </ContentWrapper>
     </MainWrapper>
   );
 }
