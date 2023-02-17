@@ -2,10 +2,9 @@
 import { supabase } from "@/pages/api/supabase";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
-import PlanetMiniCard from "@/components/ui/cards/PlanetMiniCards";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SystemDetails from "@/components/data/details/SystemDetails";
-import MiniCardsWrapper from "@/components/wrappers/MiniCardsWrapper";
+import MiniCardsWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
 
 const System = (props) => {
   return (
@@ -14,9 +13,7 @@ const System = (props) => {
       <ContentWrapper>
         <SystemDetails system={props} />
         <MiniCardsWrapper>
-          {props.planets.map((planet) => (
-            <PlanetMiniCard planet={planet} />
-          ))}
+          
         </MiniCardsWrapper>
       </ContentWrapper>
     </MainWrapper>

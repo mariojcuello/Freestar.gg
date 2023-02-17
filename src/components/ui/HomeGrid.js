@@ -1,4 +1,4 @@
-import HomeGridCard from "./cards/HomeGridCard";
+import HomeGridCard from "./cards/home/HomeGridCard";
 
 const HomeGrid = () => {
   const HOME_GRID_ITEMS = [
@@ -6,32 +6,32 @@ const HomeGrid = () => {
       title: "Locations",
       description:
         "A list of all star systems, planets, moons, and outposts in the Starfield universe..",
-      icon: "map",
+      icon: "starsystem",
       slug: "locations",
     },
     {
       title: "People",
       description:
         "Find out more and/or locate the different NPCs of the Starfield universe.",
-      icon: "user",
+      icon: "people",
       slug: "people",
     },
     {
       title: "Items",
-      description: "Look up items and their stats",
+      description: "A list of all known items in the Starfield universe. Weapons, armor, modifications and more.",
       icon: "box",
       slug: "items",
     },
     {
       title: "Starship Builder",
-      description: "Test and view starship builds.",
+      description: "A playground for building starships. View resources needed to build and more.",
       icon: "rocket",
       slug: "starship-builder",
     },
     {
       title: "Starbase Builder",
-      description: "Test and view starbase builds.",
-      icon: "building",
+      description: "A playground for building starbases/colonies. View resources needed to build and more.",
+      icon: "base",
       slug: "starbase-builder",
     },
     {
@@ -45,16 +45,15 @@ const HomeGrid = () => {
   return (
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg text-center">
-        <h2 class="text-3xl font-bold sm:text-4xl">Welcome to Freestar.gg</h2>
-        <p class="mt-4 text-gray-300">
-          This is my Starfield wiki primiliary for those devoted to supporters
-          of the Freestar Collective.
+        <h2 class="text-5xl font-bold sm:text-4xl">Freestar.gg</h2>
+        <p class="mt-4 text-2xl text-gray-300">
+          A mini Starfield wiki.
         </p>
         {''}
         <p class="mt-4 text-gray-300">
           
           I am constantly updating this site with new information as it becomes
-          available. If you would like to support me, please consider
+          available. If you would like to support the project, please consider
           <a
             href="https://www.patreon.com/freestar"
             class="text-pink-500 hover:text-pink-400"
