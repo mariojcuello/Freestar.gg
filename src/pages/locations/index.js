@@ -7,15 +7,19 @@ const POPULAR_SYSTEMS = [
   {
     name: "Sol",
     systemSlug: "sol",
+    planetCount: 4,
     moonCount: 7,
     outpostCount: 5,
+    type: "system"
   },
   {
-    name: "Alpha Centauri",
-    systemSlug: "alpha-centauri",
+    name: "Earth",
+    systemSlug: "sol",
+    planetSlug: 'earth',
     planetCount: 4,
     moonCount: 8,
     outpostCount: 0,
+    type: "planet"
   },
   {
     name: "Narion",
@@ -23,6 +27,7 @@ const POPULAR_SYSTEMS = [
     planetCount: 2,
     moonCount: 0,
     outpostCount: 0,
+    type: "system"
   },
   {
     name: "Narion",
@@ -30,6 +35,7 @@ const POPULAR_SYSTEMS = [
     planetCount: 2,
     moonCount: 0,
     outpostCount: 0,
+    type: "system"
   },
 ];
 
@@ -53,7 +59,7 @@ const SystemPage = () => {
       <Heading>Popular Systems</Heading>
       <LocationCardWrapper>
         {POPULAR_SYSTEMS.map((system) => (
-          <LocationCard system={system} key={system.name} />
+          <LocationCard location={system} key={system.name} />
         ))}
       </LocationCardWrapper>
     </MainWrapper>

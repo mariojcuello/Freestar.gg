@@ -1,33 +1,24 @@
-import Link from "next/link";
-import LocationCardDetails from "./LocationCardDetails";
 import LocationCardMoon from "./LocationCardMoon";
 import LocationCardOutpost from "./LocationCardOutpost";
 import LocationCardPlanet from "./LocationCardPlanet";
 import LocationCardTitle from "./LocationCardTitle";
+import LocationCardLink from "./LocationCardLink";
 
 const LocationCard = (props) => {
   return (
-    <Link
-      href={{
-        pathname: "locations/[systemID]",
-        query: {
-          systemID: props.system.systemSlug,
-        },
-      }}
-      class=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
-    >
-      <LocationCardTitle>{props.system.name}</LocationCardTitle>
+    <LocationCardLink location = {props.location}>
+      <LocationCardTitle>{props.location.name}</LocationCardTitle>
       <img
         alt="Home"
         src="/img/sys_holder.png"
         class="h-50 w-full rounded-md object-cover"
       />
       <div class="mt-3 flex items-center gap-4 text-xs justify-evenly">
-        <LocationCardPlanet location = {props.system}></LocationCardPlanet>
-        <LocationCardMoon location = {props.system}></LocationCardMoon>
-        <LocationCardOutpost location = {props.system}></LocationCardOutpost>
+        <LocationCardPlanet location = {props.location}></LocationCardPlanet>
+        <LocationCardMoon location = {props.location}></LocationCardMoon>
+        <LocationCardOutpost location = {props.location}></LocationCardOutpost>
       </div>
-    </Link>
+    </LocationCardLink>
   );
 };
 

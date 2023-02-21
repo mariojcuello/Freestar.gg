@@ -1,28 +1,34 @@
 "use client";
 
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link';
-import {useRouter} from 'next/navigation';
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useSession } from "@supabase/auth-helpers-react";
+import { supabase } from "@/pages/api/supabase";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 const Navbar = () => {
-
   const navigation = [
-    { name: 'Home', href: '/', current: null },
-    { name: 'Locations', href: '/locations', current: 'galaxy' },
-    { name: 'Items', href: '/items', current: 'starship' },
-    { name: 'Starship Builder', href: '/builder', current: 'starship' },
-  ]
+    { name: "Home", href: "/", current: null },
+    { name: "Locations", href: "/locations", current: "galaxy" },
+    { name: "Items", href: "/items", current: "starship" },
+    { name: "Starship Builder", href: "/builder", current: "starship" },
+  ];
 
-  const router= useRouter();
+  const onSignOutHandler = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) console.log("Error signing out:", error.message);
+  };
+
+  const router = useRouter();
+  const session = useSession();
 
   return (
-    
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
@@ -59,10 +65,12 @@ const Navbar = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          router.query === item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          router.query === item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -93,26 +101,52 @@ const Navbar = () => {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
+                      {!session ? (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              href="/login"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Login
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      ) : (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              href="/account"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Your Profile
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      )}
+                      {!session ? (
+                        <Menu.Item>{({ active }) => <div></div>}</Menu.Item>
+                      ) : (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <btn
+                              onClick={onSignOutHandler}
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Sign-out
+                            </btn>
+                          )}
+                        </Menu.Item>
+                      )}
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -125,13 +159,11 @@ const Navbar = () => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
+                  as={Link}
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -141,7 +173,7 @@ const Navbar = () => {
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

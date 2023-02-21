@@ -4,7 +4,8 @@ import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SystemDetails from "@/components/data/details/SystemDetails";
-import MiniCardsWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
+import LocationCard from "@/components/ui/cards/locations/LocationCard";
+import LocationCardWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
 
 const System = (props) => {
   return (
@@ -12,9 +13,12 @@ const System = (props) => {
       <Heading>{props.name}</Heading>
       <ContentWrapper>
         <SystemDetails system={props} />
-        <MiniCardsWrapper>
-          
-        </MiniCardsWrapper>
+        <LocationCardWrapper>
+          {props.planets.map((planet) => (
+            <LocationCard location={planet} />
+          ))}
+        </LocationCardWrapper>
+        <p>{props.description}</p>
       </ContentWrapper>
     </MainWrapper>
   );
@@ -56,6 +60,8 @@ export async function getStaticProps(context) {
       moonCount: system[0].moonCount,
       outpostCount: system[0].outpostCount,
       planets: planets,
+      type: system[0].type,
+      description: system[0].description,
     },
   };
 }
