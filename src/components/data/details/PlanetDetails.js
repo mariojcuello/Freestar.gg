@@ -49,6 +49,7 @@ const PlanetDetails = (props) => {
           </DetailsTableRow>
         </tbody>
       </table>
+      <img src={`/img/systems/${props.planet.planetSlug}.png`}></img>
     </div>
   );
 };

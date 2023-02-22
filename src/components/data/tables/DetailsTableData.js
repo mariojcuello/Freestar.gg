@@ -1,6 +1,6 @@
 const DetailsTableData = (props) => {
     return (
-        <td class="px-6 pt-[0.75rem] pb-[0.75rem]">
+        <td class="px-6 pt-[0.3rem] pb-[0.3rem]">
             {props.children}
         </td>
     )

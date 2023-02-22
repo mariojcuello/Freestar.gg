@@ -2,6 +2,7 @@ import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import LocationCardWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
 import LocationCard from "@/components/ui/cards/locations/LocationCard";
+import Search from "@/components/ui/Search";
 
 const POPULAR_SYSTEMS = [
   {
@@ -56,7 +57,7 @@ const POPULAR_MOONS = [
 const SystemPage = () => {
   return (
     <MainWrapper>
-      <Heading>Popular Systems</Heading>
+      <Search></Search><Heading>Popular Systems </Heading>
       <LocationCardWrapper>
         {POPULAR_SYSTEMS.map((system) => (
           <LocationCard location={system} key={system.name} />

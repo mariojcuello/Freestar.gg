@@ -3,22 +3,16 @@ import { supabase } from "@/pages/api/supabase";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
-import SystemDetails from "@/components/data/details/SystemDetails";
-import LocationCard from "@/components/ui/cards/locations/LocationCard";
-import LocationCardWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
+import SystemTabMenu from "@/components/ui/tabs/SystemTabMenu";
+
 
 const System = (props) => {
+
   return (
     <MainWrapper>
       <Heading>{props.name}</Heading>
       <ContentWrapper>
-        <SystemDetails system={props} />
-        <LocationCardWrapper>
-          {props.planets.map((planet) => (
-            <LocationCard location={planet} />
-          ))}
-        </LocationCardWrapper>
-        <p>{props.description}</p>
+        <SystemTabMenu system={props}/>
       </ContentWrapper>
     </MainWrapper>
   );

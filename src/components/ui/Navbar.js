@@ -14,10 +14,11 @@ function classNames(...classes) {
 
 const Navbar = () => {
   const navigation = [
-    { name: "Home", href: "/", current: null },
-    { name: "Locations", href: "/locations", current: "galaxy" },
-    { name: "Items", href: "/items", current: "starship" },
-    { name: "Starship Builder", href: "/builder", current: "starship" },
+    { name: "Locations", href: "/locations", current: 'locations' },
+    { name: "Items", href: "/items", current: "items" },
+    { name: "People", href: "/people", current: "people" },
+    { name: "Ship Builder", href: "/builder", current: "ship-builder" },
+    { name: "Outpost Builder", href: "/builder", current: "outpost-builder" },
   ];
 
   const onSignOutHandler = async () => {
@@ -47,16 +48,20 @@ const Navbar = () => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="/img/freestarlogo.png"
-                    alt="Freestar.gg"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="/img/freestarlogo.png"
-                    alt="Freestar.gg"
-                  />
+                  <Link href="/">
+                    <img
+                      className="block h-8 w-auto lg:hidden"
+                      src="/img/freestarlogo.png"
+                      alt="Freestar.gg"
+                    />
+                  </Link>
+                  <Link href="/">
+                    <img
+                      className="hidden h-8 w-auto lg:block"
+                      src="/img/freestarlogo.png"
+                      alt="Freestar.gg"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -86,7 +91,7 @@ const Navbar = () => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="/svg/astronaut.svg"
                         alt=""
                       />
                     </Menu.Button>
@@ -105,7 +110,7 @@ const Navbar = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              href="/login"
+                              href="/account"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -135,7 +140,8 @@ const Navbar = () => {
                       ) : (
                         <Menu.Item>
                           {({ active }) => (
-                            <btn
+                            <Link
+                              href=""
                               onClick={onSignOutHandler}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
@@ -143,7 +149,7 @@ const Navbar = () => {
                               )}
                             >
                               Sign-out
-                            </btn>
+                            </Link>
                           )}
                         </Menu.Item>
                       )}

@@ -14,7 +14,6 @@ export default function App({ Component, pageProps }) {
     >
       <div>
         <Navbar />
-        <Search />
         <Component {...pageProps} />
       </div>
     </SessionContextProvider>
