@@ -1,11 +1,6 @@
 "use client";
 import { supabase } from "@/pages/api/supabase";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { GetStaticPaths } from "next";
-import Link from "next/link";
 import MainWrapper from "@/components/wrappers/MainWrapper";
-import Heading from "@/components/ui/Heading";
 import CrumbsPlanet from "@/components/ui/breadcrumbs/CrumbsPlanet";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import PlanetDetails from "@/components/data/details/PlanetDetails";
