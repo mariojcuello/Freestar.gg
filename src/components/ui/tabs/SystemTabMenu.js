@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PlanetsTab from "./PlanetsTab";
-import StatsTab from "./Statstab";
+import StatsTab from "./StatsTab";
 
 const SystemTabMenu = (props) => {
   const [activeTab, setActiveTab] = useState("stats");
