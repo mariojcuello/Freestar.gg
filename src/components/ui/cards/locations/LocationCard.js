@@ -10,7 +10,7 @@ const LocationCard = (props) => {
     <LocationCardLink location = {props.location}>
       <LocationCardTitle>{props.location.name}</LocationCardTitle>
       <LocationCardImage location={props.location}/>
-      <div class="mt-3 flex items-center gap-3 text-xs justify-evenly">
+      <div className="mt-3 flex items-center gap-3 text-xs justify-evenly">
         <LocationCardPlanet location = {props.location}></LocationCardPlanet>
         <LocationCardMoon location = {props.location}></LocationCardMoon>
         <LocationCardOutpost location = {props.location}></LocationCardOutpost>

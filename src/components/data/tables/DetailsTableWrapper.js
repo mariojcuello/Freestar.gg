@@ -1,6 +1,6 @@
 const DetailsTableWrapper = (props) => {
   return (
-    <div class="relative overflow-x-auto max-w-full">{props.children}</div>
+    <div className="relative overflow-x-auto max-w-full">{props.children}</div>
   );
 };
 

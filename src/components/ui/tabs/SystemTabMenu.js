@@ -11,9 +11,9 @@ const SystemTabMenu = (props) => {
 
   return (
     <div>
-      <div class="border-b border-gray-200 dark:border-gray-700 mb-5">
-        <ul class=" justify-center md:justify-start flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-          <li class="mr-2">
+      <div className="border-b border-gray-200 dark:border-gray-700 mb-5">
+        <ul className=" justify-center md:justify-start flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+          <li className="mr-2">
             <button
               onClick={() => tabClickHandler("stats")}
               className={
@@ -37,7 +37,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Statistics</div>
             </button>
           </li>
-          <li class="mr-2">
+          <li className="mr-2">
             <button
               onClick={() => tabClickHandler("planets")}
               className={
@@ -80,9 +80,9 @@ const SystemTabMenu = (props) => {
                       data-name="Path 19"
                       d="M400.4,283.954"
                       stroke="#e54b50"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="5.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="5.5"
                     />
                   </g>
                   <g id="Group_21" data-name="Group 21">
@@ -104,7 +104,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Planets</div>
             </button>
           </li>
-          <li class="mr-2">
+          <li className="mr-2">
             <button
               onClick={() => tabClickHandler("moons")}
               className={
@@ -129,7 +129,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Moons</div>
             </button>
           </li>
-          <li class="mr-2">
+          <li className="mr-2">
             <button
               onClick={() => tabClickHandler("outposts")}
               className={
@@ -155,7 +155,7 @@ const SystemTabMenu = (props) => {
               
             </button>
           </li>
-          <li class="mr-2">
+          <li className="mr-2">
             <button
               onClick={() => tabClickHandler("people")}
               className={

@@ -4,7 +4,7 @@ const LocationCardImage = (props) => {
       <img
         src={`/img/systems/${props.location.systemSlug}.png`}
         alt={props.location.name}
-        class="h-50 w-full rounded-md object-cover"
+        className="h-50 w-full rounded-md object-cover"
       />
     );
   }
@@ -13,7 +13,7 @@ const LocationCardImage = (props) => {
       <img
         src={`/img/planets/${props.location.planetSlug}.png`}
         alt={props.location.name}
-        class="h-50 w-full rounded-md object-cover"
+        className="h-50 w-full rounded-md object-cover"
       />
     );
   }
@@ -22,7 +22,7 @@ const LocationCardImage = (props) => {
       <img
         src={`/img/systems/${props.location.moonSlug}.png`}
         alt={props.location.name}
-        class="h-50 w-full rounded-md object-cover"
+        className="h-50 w-full rounded-md object-cover"
       />
     );
   }
@@ -31,7 +31,7 @@ const LocationCardImage = (props) => {
       <img
         src={`/img/systems/${props.location.outpostSlug}.png`}
         alt={props.location.name}
-        class="h-50 w-full rounded-md object-cover"
+        className="h-50 w-full rounded-md object-cover"
       />
     );
   }

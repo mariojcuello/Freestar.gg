@@ -6,7 +6,7 @@ import DetailsTableWrapper from "../tables/DetailsTableWrapper";
 const SystemDetails = (props) => {
   return (
     <div className="flex">
-        <table class="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
+        <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
           <tbody>
             <DetailsTableRow>
               <DetailsTableHead>Spectral Class</DetailsTableHead>

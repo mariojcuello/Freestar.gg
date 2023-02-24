@@ -18,7 +18,12 @@ const DEMO_PLANET = {
 const Planet = (props) => {
   return (
     <MainWrapper>
-      <CrumbsPlanet system={props.system} systemSlug={props.systemSlug} planet={props.name} planetSlug={props.planetSlug}></CrumbsPlanet>
+      <CrumbsPlanet
+        system={props.system}
+        systemSlug={props.systemSlug}
+        planet={props.name}
+        planetSlug={props.planetSlug}
+      ></CrumbsPlanet>
       <ContentWrapper>
         <PlanetDetails planet={props} />
       </ContentWrapper>
@@ -27,18 +32,41 @@ const Planet = (props) => {
 };
 
 export async function getStaticPaths() {
+  const { data: systems } = await supabase.from("systems_test").select("*");
+  const { data: planets } = await supabase.from("planets_test").select("*");
+
+  const systemIDs = systems.map((system) => system.slug);
+  const planetIDs = planets.map((planet) => planet.slug);
+
+  // Generate paths for all planet-system combinations
+  const paths = planets.reduce((acc, planet) => {
+    const system = systems.find((s) => s.slug === planet.systemSlug);
+    if (system) {
+      acc.push({
+        params: { systemID: system.slug, planetID: planet.planetSlug },
+      });
+    }
+    return acc;
+  }, []);
+
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          systemID: "sol",
-          planetID: "earth",
-        },
-      },
-    ],
+    paths: paths,
   };
 }
+
+//   return {
+//     paths: [
+//       {
+//         params: {
+//           systemID: "sol",
+//           planetID: "earth",
+//         },
+//       },
+//     ],
+//     fallback: false, //set to true if we want to pregnerate some selected pages
+//   };
+// }
 
 export async function getStaticProps(context) {
   const { params } = context;

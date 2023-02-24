@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
+      <title>Freestar.gg</title>
       <link rel="shortcut icon" href="/favicon.ico " />
       <body>
         <Main />
         <NextScript />
-        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </Html>
   )

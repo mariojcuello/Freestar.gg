@@ -10,7 +10,7 @@ const LocationCardLink = (props) => {
             systemID: props.location.systemSlug,
           },
         }}
-        class=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
+        className=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
       >
         {props.children}
       </Link>
@@ -26,7 +26,7 @@ const LocationCardLink = (props) => {
             planetID: props.location.planetSlug,
           },
         }}
-        class=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
+        className=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
       >
         {props.children}
       </Link>
@@ -43,7 +43,7 @@ const LocationCardLink = (props) => {
             moonID: props.location.moonSlug,
           },
         }}
-        class=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
+        className=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
       >
         {props.children}
       </Link>
@@ -61,7 +61,7 @@ const LocationCardLink = (props) => {
             outpostID: props.location.outpostSlug,
           },
         }}
-        class=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
+        className=" rounded-lg p-3 shadow-xl transition bg-gray-800 dark:hover:bg-gray-700"
       >
         {props.children}
       </Link>

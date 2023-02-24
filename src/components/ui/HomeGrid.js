@@ -44,20 +44,20 @@ const HomeGrid = () => {
   ];
 
   return (
-    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-lg text-center">
-        <h2 class="text-5xl font-bold sm:text-4xl">Freestar.gg</h2>
-        <p class="mt-4 text-2xl text-gray-300">
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-lg text-center">
+        <h2 className="text-5xl font-bold sm:text-4xl">Freestar.gg</h2>
+        <p className="mt-4 text-2xl text-gray-300">
           A mini Starfield wiki.
         </p>
         {''}
-        <p class="mt-4 text-gray-300">
+        <p className="mt-4 text-gray-300">
           
           I am constantly updating this site with new information as it becomes
           available. If you would like to support the project, please consider
           <a
             href="https://www.patreon.com/freestar"
-            class="text-pink-500 hover:text-pink-400"
+            className="text-pink-500 hover:text-pink-400"
           >
             {" "}
             becoming a patron
@@ -67,9 +67,9 @@ const HomeGrid = () => {
       </div>
       <Search/>
 
-      <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {HOME_GRID_ITEMS.map((item) => (
-          <HomeGridCard item={item} />
+          <HomeGridCard item={item} key={item.slug} />
         ))}
       </div>
     </div>

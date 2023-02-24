@@ -5,24 +5,30 @@ import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SystemTabMenu from "@/components/ui/tabs/SystemTabMenu";
 
-
 const System = (props) => {
-
   return (
     <MainWrapper>
       <Heading>{props.name}</Heading>
       <ContentWrapper>
-        <SystemTabMenu system={props}/>
+        <SystemTabMenu system={props} />
       </ContentWrapper>
     </MainWrapper>
   );
 };
 
-//need to add all valid paths
 export async function getStaticPaths() {
+
+  const { data: systems } = await supabase.from("systems_test").select("*");
+ 
+  const systemIDs = systems.map((system) => system.slug);
+  
+  const validPaths = systemIDs.map((systemID) => ({
+    params: { systemID: systemID },
+  }));
+
   return {
     fallback: false,
-    paths: [{ params: { systemID: "sol" } }],
+    paths: validPaths,
   };
 }
 

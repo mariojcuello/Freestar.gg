@@ -11,16 +11,15 @@ const POPULAR_SYSTEMS = [
     planetCount: 4,
     moonCount: 7,
     outpostCount: 5,
-    type: "system"
+    type: "system",
   },
   {
-    name: "Earth",
-    systemSlug: "sol",
-    planetSlug: 'earth',
+    name: "Alpha Centauri",
+    systemSlug: "alpha-centauri",
     planetCount: 4,
     moonCount: 8,
-    outpostCount: 0,
-    type: "planet"
+    outpostCount: 3,
+    type: "system",
   },
   {
     name: "Narion",
@@ -28,36 +27,23 @@ const POPULAR_SYSTEMS = [
     planetCount: 2,
     moonCount: 0,
     outpostCount: 0,
-    type: "system"
+    type: "system",
   },
   {
-    name: "Narion",
-    systemSlug: "proxima-centauri",
-    planetCount: 2,
-    moonCount: 0,
-    outpostCount: 0,
-    type: "system"
+    name: "Volii",
+    systemSlug: "volii",
+    planetCount: 1,
+    moonCount: 3,
+    outpostCount: 1,
+    type: "system",
   },
-];
-
-const POPULAR_PLANETS = [
-  { name: "Sol", systemSlug: "sol" },
-  { name: "Alpha Centauri", systemSlug: "alpha-centauri" },
-  { name: "Narion", systemSlug: "proxima-centauri" },
-  { name: "Narion", systemSlug: "proxima-centauri" },
-];
-
-const POPULAR_MOONS = [
-  { name: "Sol", systemSlug: "sol" },
-  { name: "Alpha Centauri", systemSlug: "alpha-centauri" },
-  { name: "Narion", systemSlug: "proxima-centauri" },
-  { name: "Narion", systemSlug: "proxima-centauri" },
 ];
 
 const SystemPage = () => {
   return (
     <MainWrapper>
-      <Search></Search><Heading>Popular Systems </Heading>
+      <Search></Search>
+      <Heading>Popular Systems </Heading>
       <LocationCardWrapper>
         {POPULAR_SYSTEMS.map((system) => (
           <LocationCard location={system} key={system.name} />

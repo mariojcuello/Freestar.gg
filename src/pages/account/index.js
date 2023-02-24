@@ -56,14 +56,14 @@ const Account = () => {
             <div className="grid-cols-1">
               <label
                 for="email"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 email
               </label>
               <div className="text-lg mb-8">{session.user.email}</div>
               <label
                 for="email"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Pro?
               </label>
