@@ -1,5 +1,5 @@
-import LocationCardWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
-import LocationCard from "@/components/ui/cards/locations/LocationCard";
+import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCardWrapper";
+import LocationCard from "@/components/ui/cards/locationCard/LocationCard";
 
 const PlanetsTab = (props) => {
   return (

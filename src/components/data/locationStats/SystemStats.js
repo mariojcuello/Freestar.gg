@@ -1,9 +1,8 @@
-import DetailsTableRow from "../tables/DetailsTableRow";
-import DetailsTableHead from "../tables/DetailsTableHead";
-import DetailsTableData from "../tables/DetailsTableData";
-import DetailsTableWrapper from "../tables/DetailsTableWrapper";
+import DetailsTableRow from "./DetailsTableRow";
+import DetailsTableHead from "./DetailsTableHead";
+import DetailsTableData from "./DetailsTableData";
 
-const SystemDetails = (props) => {
+const SystemStats = (props) => {
   return (
     <div className="flex">
         <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
@@ -55,4 +54,4 @@ const SystemDetails = (props) => {
   );
 };
 
-export default SystemDetails;
+export default SystemStats;

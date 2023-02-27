@@ -1,11 +1,11 @@
-import DetailsTableRow from "../tables/DetailsTableRow";
-import DetailsTableHead from "../tables/DetailsTableHead";
-import DetailsTableData from "../tables/DetailsTableData";
+import DetailsTableRow from "./DetailsTableRow";
+import DetailsTableHead from "./DetailsTableHead";
+import DetailsTableData from "./DetailsTableData";
 
-const PlanetDetails = (props) => {
+const PlanetStats = (props) => {
     return (
-     <div className="relative overflow-x-auto max-w-sm">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <div className="flex">
+      <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
         <tbody>
           <DetailsTableRow>
             <DetailsTableHead>Type</DetailsTableHead>
@@ -49,9 +49,12 @@ const PlanetDetails = (props) => {
           </DetailsTableRow>
         </tbody>
       </table>
-      <img src={`/img/systems/${props.planet.planetSlug}.png`}></img>
-    </div>
+      <img
+        src={`/img/planets/${props.planet.planetSlug}.png`}
+        alt={props.planet.planetSlug}
+        className="hidden md:flex ml-10 w-2/5 h-full rounded-xl"
+      ></img>    </div>
   );
 };
 
-export default PlanetDetails;
+export default PlanetStats;

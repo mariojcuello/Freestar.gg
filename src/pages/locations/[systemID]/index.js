@@ -3,7 +3,7 @@ import { supabase } from "@/pages/api/supabase";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
-import SystemTabMenu from "@/components/ui/tabs/SystemTabMenu";
+import SystemTabMenu from "@/components/ui/tabs/system/SystemTabMenu";
 
 const System = (props) => {
   return (
@@ -17,11 +17,10 @@ const System = (props) => {
 };
 
 export async function getStaticPaths() {
-
   const { data: systems } = await supabase.from("systems_test").select("*");
- 
+
   const systemIDs = systems.map((system) => system.slug);
-  
+
   const validPaths = systemIDs.map((systemID) => ({
     params: { systemID: systemID },
   }));
@@ -44,6 +43,10 @@ export async function getStaticProps(context) {
     .from("planets_test")
     .select("*")
     .eq("systemSlug", systemID);
+  const { data: moons } = await supabase
+    .from("moons_test")
+    .select("*")
+    .eq("systemSlug", systemID);
 
   return {
     props: {
@@ -60,6 +63,7 @@ export async function getStaticProps(context) {
       moonCount: system[0].moonCount,
       outpostCount: system[0].outpostCount,
       planets: planets,
+      moons: moons,
       type: system[0].type,
       description: system[0].description,
     },

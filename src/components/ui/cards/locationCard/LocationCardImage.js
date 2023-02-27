@@ -20,7 +20,7 @@ const LocationCardImage = (props) => {
   if (props.location.type == "moon") {
     return (
       <img
-        src={`/img/systems/${props.location.moonSlug}.png`}
+        src={`/img/moons/${props.location.moonSlug}.png`}
         alt={props.location.name}
         className="h-50 w-full rounded-md object-cover"
       />
@@ -29,7 +29,7 @@ const LocationCardImage = (props) => {
   if (props.location.type == "outpost") {
     return (
       <img
-        src={`/img/systems/${props.location.outpostSlug}.png`}
+        src={`/img/outposts/${props.location.outpostSlug}.png`}
         alt={props.location.name}
         className="h-50 w-full rounded-md object-cover"
       />

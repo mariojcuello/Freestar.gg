@@ -3,7 +3,8 @@ import { supabase } from "@/pages/api/supabase";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import CrumbsPlanet from "@/components/ui/breadcrumbs/CrumbsPlanet";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
-import PlanetDetails from "@/components/data/details/PlanetDetails";
+import PlanetDetails from "@/components/data/locationStats/PlanetStats";
+import PlanetTabMenu from "@/components/ui/tabs/planet/PlanetTabMenu";
 
 const DEMO_PLANET = {
   name: "Earth",
@@ -25,7 +26,7 @@ const Planet = (props) => {
         planetSlug={props.planetSlug}
       ></CrumbsPlanet>
       <ContentWrapper>
-        <PlanetDetails planet={props} />
+        <PlanetTabMenu planet={props}></PlanetTabMenu>
       </ContentWrapper>
     </MainWrapper>
   );
@@ -38,7 +39,6 @@ export async function getStaticPaths() {
   const systemIDs = systems.map((system) => system.slug);
   const planetIDs = planets.map((planet) => planet.slug);
 
-  // Generate paths for all planet-system combinations
   const paths = planets.reduce((acc, planet) => {
     const system = systems.find((s) => s.slug === planet.systemSlug);
     if (system) {
@@ -55,19 +55,6 @@ export async function getStaticPaths() {
   };
 }
 
-//   return {
-//     paths: [
-//       {
-//         params: {
-//           systemID: "sol",
-//           planetID: "earth",
-//         },
-//       },
-//     ],
-//     fallback: false, //set to true if we want to pregnerate some selected pages
-//   };
-// }
-
 export async function getStaticProps(context) {
   const { params } = context;
   const planetID = params.planetID;
@@ -75,6 +62,11 @@ export async function getStaticProps(context) {
     .from("planets_test")
     .select("*")
     .eq("planetSlug", planetID);
+  const { data: moons } = await supabase
+    .from("moons_test")
+    .select("*")
+    .eq("planetSlug", planetID);
+    console.log(moons)
 
   return {
     props: {
@@ -93,6 +85,7 @@ export async function getStaticProps(context) {
       faction: planets[0].faction,
       moonCount: planets[0].moonCount,
       outpostCount: planets[0].outpostCount,
+      moons: moons,
     },
     revalidate: 3600,
   };

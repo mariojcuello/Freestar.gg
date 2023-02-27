@@ -1,8 +1,9 @@
-import PlanetDetails from "@/components/data/details/PlanetDetails";
+import MoonDetails from "@/components/data/locationStats/MoonStats";
+import PlanetDetails from "@/components/data/locationStats/PlanetStats";
 
 const {
   default: SystemDetails,
-} = require("@/components/data/details/SystemDetails");
+} = require("@/components/data/locationStats/SystemStats");
 
 const StatsTab = (props) => {
   if (props.location.type == "system") {
@@ -24,7 +25,7 @@ const StatsTab = (props) => {
   if (props.location.type == "moon") {
     return (
       <div className={props.activeTab == "stats" ? "block" : "hidden"}>
-        <p>Moon Stats</p>
+        <MoonDetails moon={props.location}/>
       </div>
     );
   }

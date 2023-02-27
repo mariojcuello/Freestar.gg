@@ -1,4 +1,4 @@
-import HomeGrid from "@/components/ui/HomeGrid";
+import HomeGrid from "@/components/ui/homeGrid/HomeGrid";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 

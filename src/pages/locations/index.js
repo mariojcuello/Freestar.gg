@@ -1,7 +1,7 @@
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
-import LocationCardWrapper from "@/components/ui/cards/locations/LocationCardWrapper";
-import LocationCard from "@/components/ui/cards/locations/LocationCard";
+import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCardWrapper";
+import LocationCard from "@/components/ui/cards/locationCard/LocationCard";
 import Search from "@/components/ui/Search";
 
 const POPULAR_SYSTEMS = [
