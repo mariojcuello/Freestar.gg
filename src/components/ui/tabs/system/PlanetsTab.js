@@ -1,6 +1,6 @@
 import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCardWrapper";
 import LocationCard from "@/components/ui/cards/locationCard/LocationCard";
-import PlanetTable from "@/components/data/locationsTable/planetTable";
+import PlanetTable from "@/components/data/locationsTable/PlanetTable";
 import Link from "next/link";
 
 const PlanetsTab = (props) => {
