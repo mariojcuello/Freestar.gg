@@ -1,4 +1,4 @@
-const ItemHomePage = () => {
+const Item = () => {
     return (
       <div className="container mx-auto">
         <div className="max-w-[85rem] px-8 mt-9 mb-2 lg:px-8 lg:mt-14 mx-auto">
@@ -9,4 +9,4 @@ const ItemHomePage = () => {
     );
   };
   
-  export default ItemHomePage;
+  export default Item;
