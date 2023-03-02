@@ -1,4 +1,4 @@
-const PlanetTable = ({ columns, rows }) => {
+const LocationTable = ({ columns, rows }) => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -43,4 +43,4 @@ const PlanetTable = ({ columns, rows }) => {
   );
 };
 
-export default PlanetTable;
+export default LocationTable;

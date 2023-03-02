@@ -1,63 +1,67 @@
 import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCardWrapper";
 import LocationCard from "../../cards/locationCard/LocationCard";
+import LocationTable from "@/components/data/locationsTable/LocationTable";
+import Link from "next/link";
 
 const MoonsTab = (props) => {
-  // Create an array of planet objects that have at least one moon
-  const planetsWithMoons = props.system.planets.filter((planet) => {
-    return props.system.moons.some(
-      (moon) => moon.planetSlug === planet.planetSlug
-    );
-  });
+  const columns = [
+    {
+      accessor: "name",
+      label: "Name",
+      format: (value) => (
+        <div className="text-lg font-bold text-slate-300">{value}</div>
+      ),
+    },
+    { accessor: "planet", label: "Planet" },
+    { accessor: "outpostCount", label: "Outposts" },
+    {
+      accessor: "water",
+      label: "Water",
+    },
+    {
+      accessor: "flora",
+      label: "Flora",
+    },
+    {
+      accessor: "fauna",
+      label: "Fauna",
+    },
+    { accessor: "faction", label: "Faction" },
+    {
+      accessor: "locationSlug",
+      label: "",
+      format: (value) => (
+        <button
+          type="button"
+          class="text-white  focus:ring-4  font-medium rounded-lg text-sm px-5 py-2 mr-2 bg-blue-800 hover:bg-blue-600 focus:outline-none focus:ring-blue-800"
+        >
+          <Link className="hover:white" href={`/locations/${value}`}>
+            Details
+          </Link>
+        </button>
+      ),
+    },
+  ];
 
   // Render a list of planets with their associated moons
   return (
     <div className={props.activeTab == "moons" ? "block" : "hidden"}>
-      {planetsWithMoons.map((planet) => {
-        // Filter the moons array to only include moons that belong to the current planet
-        const filteredMoons = props.system.moons.filter(
-          (moon) => moon.planetSlug === planet.planetSlug
-        );
-
-        return (
-          <div key={planet.planetSlug}>
-            <div className="mt-5 text-3xl">{planet.name}</div>
-            <LocationCardWrapper>
-              {filteredMoons.map((moon) => (
-                <LocationCard key={moon.name} location={moon} className=" w-[75%]"/>
-              ))}
-            </LocationCardWrapper>
-          </div>
-        );
-      })}
+      <div className="hidden md:block">
+        <LocationTable
+          columns={columns}
+          rows={props.system.moons}
+          className="hidden md:block"
+        ></LocationTable>
+      </div>
+      <div className="block md:hidden">
+        <LocationCardWrapper>
+          {props.system.moons.map((moon) => (
+            <LocationCard location={moon} key={moon.moonSlug} />
+          ))}
+        </LocationCardWrapper>
+      </div>
     </div>
   );
 };
-
-// const MoonsTab = (props) => {
-//   for (let i = 0; i <= props.system.planets.length; i++) {
-//     console.log(props.system.planets[i].planetSlug);
-//     console.log(props.system.moons);
-//     if (props.system.planets[i].moonCount > 0) {
-//       const filteredMoons = props.system.moons.filter(
-//         (moon) => moon.planetSlug === props.system.planets[i].planetSlug
-//       );
-//       console.log(filteredMoons);
-//       return (
-//         <div className={props.activeTab == "moons" ? "block" : "hidden"}>
-//           {props.system.planets.map((planet) => (
-//             <div>
-//               <div className="mt-5 text-3xl">{planet.name}</div>
-
-//               <LocationCardWrapper>
-//                 {filteredMoons.map((moon) => (
-//                   <LocationCard location={moon} key={moon.moonSlug} />
-//                 ))}
-//               </LocationCardWrapper>
-//             </div>
-//           ))}
-//         </div>
-//       );
-//     }
-//   }
 
 export default MoonsTab;
