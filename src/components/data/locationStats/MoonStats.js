@@ -3,9 +3,14 @@ import DetailsTableHead from "./DetailsTableHead";
 import DetailsTableData from "./DetailsTableData";
 
 const MoonStats = (props) => {
-    return (
-      <div className="flex">
-      <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      <img
+        src={`/img/moons/${props.moon.moonSlug}.png`}
+        alt={props.moon.moonSlug}
+        className="grid-item flex mb-5 w-[90%] rounded-xl place-self-center"
+      ></img>
+      <table className=" text-sm text-left text-gray-500 dark:text-gray-400 w-[90%] place-self-center mb-5 ">
         <tbody>
           <DetailsTableRow>
             <DetailsTableHead>Type</DetailsTableHead>
@@ -45,7 +50,6 @@ const MoonStats = (props) => {
           </DetailsTableRow>
         </tbody>
       </table>
-      <img src={`/img/moons/${props.moon.moonSlug}.png`}></img>
     </div>
   );
 };

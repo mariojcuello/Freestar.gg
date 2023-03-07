@@ -38,7 +38,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Statistics</div>
             </button>
           </li>
-          <li className="mr-2">
+          <li className="mr-0">
             <button
               onClick={() => tabClickHandler("planets")}
               className={
@@ -105,7 +105,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Planets</div>
             </button>
           </li>
-          <li className="mr-2">
+          <li className="mr-0">
             <button
               onClick={() => tabClickHandler("moons")}
               className={
@@ -130,7 +130,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Moons</div>
             </button>
           </li>
-          <li className="mr-2">
+          <li className="mr-0">
             <button
               onClick={() => tabClickHandler("outposts")}
               className={
@@ -156,7 +156,7 @@ const SystemTabMenu = (props) => {
               
             </button>
           </li>
-          <li className="mr-2">
+          <li className="mr-0">
             <button
               onClick={() => tabClickHandler("resources")}
               className={
@@ -181,7 +181,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Resources</div>
             </button>
           </li>
-          <li className="mr-2">
+          <li className="mr-0">
             <button
               onClick={() => tabClickHandler("people")}
               className={

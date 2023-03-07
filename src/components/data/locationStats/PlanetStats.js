@@ -3,9 +3,14 @@ import DetailsTableHead from "./DetailsTableHead";
 import DetailsTableData from "./DetailsTableData";
 
 const PlanetStats = (props) => {
-    return (
-      <div className="flex">
-      <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-full md:w-1/5">
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      <img
+        src={`/img/planets/${props.planet.planetSlug}.png`}
+        alt={props.planet.planetSlug}
+        className="grid-item flex mb-5 w-[90%] rounded-xl place-self-center"
+      ></img>{" "}
+      <table className=" text-sm text-left text-gray-500 dark:text-gray-400 w-[90%] place-self-center mb-5 ">
         <tbody>
           <DetailsTableRow>
             <DetailsTableHead>Type</DetailsTableHead>
@@ -49,11 +54,7 @@ const PlanetStats = (props) => {
           </DetailsTableRow>
         </tbody>
       </table>
-      <img
-        src={`/img/planets/${props.planet.planetSlug}.png`}
-        alt={props.planet.planetSlug}
-        className="hidden md:flex ml-10 w-2/5 h-full rounded-xl"
-      ></img>    </div>
+    </div>
   );
 };
 

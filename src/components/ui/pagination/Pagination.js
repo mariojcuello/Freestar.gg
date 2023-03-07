@@ -9,9 +9,10 @@ const Pagination = ({
   const end = activePage === totalPages ? count : beginning + rowsPerPage - 1;
 
   return (
-    <>
-      <div className="pagination" >
-        <button disabled={activePage === 1} onClick={() => setActivePage(1)}>
+    <div className={totalPages <= 1 ? 'hidden' : 'block'}>
+    <div className="flex justify-center">
+      <div className="flex">
+        <button className="flex " disabled={activePage === 1} onClick={() => setActivePage(1)}>
           ⏮️ First
         </button>
         <button
@@ -33,13 +34,13 @@ const Pagination = ({
           Last ⏭️
         </button>
       </div>
-      <p>
+      {/* <p className="flex ">
         Page {activePage} of {totalPages}
       </p>
-      <p>
+      <p className="flex">
         Rows: {beginning === end ? end : `${beginning} - ${end}`} of {count}
-      </p>
-    </>
+      </p> */}
+    </div></div>
   );
 };
 

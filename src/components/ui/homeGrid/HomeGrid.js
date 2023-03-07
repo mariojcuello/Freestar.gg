@@ -1,5 +1,5 @@
 import HomeGridCard from "./HomeGridCard";
-import Search from "../Search";
+import Search from "../search/Search";
 
 const HomeGrid = () => {
   const HOME_GRID_ITEMS = [

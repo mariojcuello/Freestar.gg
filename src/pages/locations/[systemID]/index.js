@@ -5,7 +5,7 @@ import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SystemTabMenu from "@/components/ui/tabs/system/SystemTabMenu";
 
-const System = (props) => {
+const System = (props) => { 
   return (
     <MainWrapper>
       <Heading>{props.name}</Heading>
