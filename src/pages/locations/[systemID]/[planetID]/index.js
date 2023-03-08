@@ -5,6 +5,7 @@ import CrumbsPlanet from "@/components/ui/breadcrumbs/CrumbsPlanet";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import PlanetDetails from "@/components/data/locationStats/PlanetStats";
 import PlanetTabMenu from "@/components/ui/tabs/planet/PlanetTabMenu";
+import { getMoonByPlanetSlug, getPlanetBySlug } from "@/pages/api/locations";
 
 const DEMO_PLANET = {
   name: "Earth",
@@ -58,15 +59,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { params } = context;
   const planetID = params.planetID;
-  const { data: planets } = await supabase
-    .from("planets_test")
-    .select("*")
-    .eq("planetSlug", planetID);
-  const { data: moons } = await supabase
-    .from("moons_test")
-    .select("*")
-    .eq("planetSlug", planetID);
-    console.log(moons)
+  const { data: planets } = await getPlanetBySlug(planetID)
+  const { data: moons } = await getMoonByPlanetSlug(planetID)
 
   return {
     props: {

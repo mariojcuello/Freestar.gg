@@ -1,9 +1,9 @@
 "use client";
-import { supabase } from "@/pages/api/supabase";
 import MainWrapper from "@/components/wrappers/MainWrapper";
 import Heading from "@/components/ui/Heading";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SystemTabMenu from "@/components/ui/tabs/system/SystemTabMenu";
+import { getPlanetsBySystemSlug, getSystemBySlug, getMoonsBySystemSlug, getAllSystems } from "@/pages/api/locations";
 
 const System = (props) => { 
   return (
@@ -17,7 +17,7 @@ const System = (props) => {
 };
 
 export async function getStaticPaths() {
-  const { data: systems } = await supabase.from("systems_test").select("*");
+  const { data: systems } = await getAllSystems();
 
   const systemIDs = systems.map((system) => system.slug);
 
@@ -35,18 +35,9 @@ export async function getStaticProps(context) {
   const { params } = context;
   const systemID = params.systemID;
 
-  const { data: system } = await supabase
-    .from("systems_test")
-    .select("*")
-    .eq("slug", systemID);
-  const { data: planets } = await supabase
-    .from("planets_test")
-    .select("*")
-    .eq("systemSlug", systemID);
-  const { data: moons } = await supabase
-    .from("moons_test")
-    .select("*")
-    .eq("systemSlug", systemID);
+  const { data: system } = await getSystemBySlug(systemID)
+  const { data: planets } = await getPlanetsBySystemSlug(systemID)
+  const { data: moons } = await getMoonsBySystemSlug(systemID)
 
   return {
     props: {
@@ -67,6 +58,7 @@ export async function getStaticProps(context) {
       type: system[0].type,
       description: system[0].description,
     },
+    revalidate: 3600,
   };
 }
 

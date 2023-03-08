@@ -5,6 +5,7 @@ import { supabase } from "@/pages/api/supabase";
 import Link from "next/link";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SortingLocationTable from "@/components/data/locationsTable/SortingLocationTable";
+import { getAllSystems } from "@/pages/api/locations";
 
 const SystemHome = (props) => {
   const columns = [
@@ -45,6 +46,8 @@ const SystemHome = (props) => {
     },
   ];
 
+  console.log(props.systems);
+
   return (
     <MainWrapper>
       <Search></Search>
@@ -60,7 +63,7 @@ const SystemHome = (props) => {
 };
 
 export async function getStaticProps() {
-  const { data: systems } = await supabase.from("systems_test").select("*");
+  const { data: systems } = await getAllSystems();
 
   return {
     props: {

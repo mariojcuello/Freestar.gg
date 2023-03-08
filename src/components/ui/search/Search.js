@@ -1,4 +1,5 @@
 const Search = () => {
+    
     return (
         <div className="max-w-[85rem] px-8 mt-5 mb-5 lg:px-8 lg:mt-7 mx-auto">
         <form>   
@@ -14,5 +15,8 @@ const Search = () => {
       </div>
     )
 }
+
+
+  
 
 export default Search
