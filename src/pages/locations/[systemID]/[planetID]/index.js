@@ -6,6 +6,7 @@ import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import PlanetDetails from "@/components/data/locationStats/PlanetStats";
 import PlanetTabMenu from "@/components/ui/tabs/planet/PlanetTabMenu";
 import { getMoonByPlanetSlug, getPlanetBySlug } from "@/pages/api/locations";
+import LocationCrumbs from "@/components/ui/breadcrumbs/LocationCrumbs";
 
 const DEMO_PLANET = {
   name: "Earth",
@@ -20,12 +21,12 @@ const DEMO_PLANET = {
 const Planet = (props) => {
   return (
     <MainWrapper>
-      <CrumbsPlanet
+      <LocationCrumbs
         system={props.system}
         systemSlug={props.systemSlug}
         planet={props.name}
         planetSlug={props.planetSlug}
-      ></CrumbsPlanet>
+      ></LocationCrumbs>
       <ContentWrapper>
         <PlanetTabMenu planet={props}></PlanetTabMenu>
       </ContentWrapper>

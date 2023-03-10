@@ -5,13 +5,13 @@ const SearchResult = ({ result }) => {
   let imgSrc = "";
 
   if (result.type === "system") {
-    href = `/locations/system/${result.slug}`;
+    href = `/locations/${result.slug}`;
     imgSrc = `/svg/starsystem.svg`;
   } else if (result.type === "planet") {
-    href = `/locations/system/planet/${result.slug}`;
+    href = `/locations/${result.systemSlug}/${result.slug}`;
     imgSrc = `/svg/ring_planet.svg`;
   } else if (result.type === "moon") {
-    href = `/locations/system/planet/moon/${result.slug}`;
+    href = `/locations/${result.systemSlug}/${result.planetSlug}/${result.slug}`;
     imgSrc = `/svg/moon.svg`;
   }
 

@@ -33,6 +33,7 @@ export async function getAllLocations(searchQuery) {
         name: planet.name,
         type: 'planet',
         slug: planet.planetSlug,
+        systemSlug: planet.systemSlug,
       })
     })
 
@@ -42,6 +43,8 @@ export async function getAllLocations(searchQuery) {
         name: moon.name,
         type: 'moon',
         slug: moon.moonSlug,
+        planetSlug: moon.planetSlug,
+        systemSlug: moon.systemSlug,
       })
     })
 

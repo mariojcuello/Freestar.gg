@@ -81,10 +81,17 @@ const SearchModal = (props) => {
           {shouldDisplayResults && (
             <ul>
               {filteredLocations.length === 0 ? (
-                <li>No results found</li>
+                <div class="flex justify-center my-5">
+                  <h5 class="mb-2 text-lg md:text-2xl font-bold tracking-tight text-white ">
+                    No Results Found!
+                  </h5>
+                </div>
               ) : (
                 filteredLocations.map((location) => (
-                  <SearchResult result={location} key={location.slug}></SearchResult>
+                  <SearchResult
+                    result={location}
+                    key={location.slug}
+                  ></SearchResult>
                 ))
               )}
             </ul>
