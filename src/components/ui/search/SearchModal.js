@@ -1,5 +1,6 @@
 import { getAllLocations } from "@/pages/api/locations";
 import { useState, useEffect } from "react";
+import SearchResult from "./SearchResult";
 
 const SearchModal = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,7 +36,7 @@ const SearchModal = (props) => {
       onClick={props.onClose}
     >
       <div
-        className="flex w-full h-full max-w-4xl md:h-auto mx-auto pt-[70px]"
+        className="flex w-full h-full max-w-xl md:h-auto mx-auto pt-[70px]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 min-w-full">
@@ -60,8 +61,12 @@ const SearchModal = (props) => {
                 Search
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <img src="/svg/search.svg" className="w-5 h-5" alt="search" />
+                <div className="relative inset-y-7 left-0 flex items-center pl-3 pointer-events-none">
+                  <img
+                    src="/svg/search.svg"
+                    className="w-5 h-5 absolute"
+                    alt="search"
+                  />
                 </div>
                 <input
                   type="search"
@@ -70,23 +75,20 @@ const SearchModal = (props) => {
                   onChange={handleSearch}
                   value={searchTerm}
                 />
-
-                {shouldDisplayResults && (
-                  <ul>
-                    {filteredLocations.length === 0 ? (
-                      <li>No results found</li>
-                    ) : (
-                      filteredLocations.map((location) => (
-                        <li key={location.slug}>
-                          {location.name} - {location.type}
-                        </li>
-                      ))
-                    )}
-                  </ul>
-                )}
               </div>
             </form>
           </div>
+          {shouldDisplayResults && (
+            <ul>
+              {filteredLocations.length === 0 ? (
+                <li>No results found</li>
+              ) : (
+                filteredLocations.map((location) => (
+                  <SearchResult result={location} key={location.slug}></SearchResult>
+                ))
+              )}
+            </ul>
+          )}
         </div>
       </div>
     </div>

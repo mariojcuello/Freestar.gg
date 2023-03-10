@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <MainWrapper>
-        <HomeGrid></HomeGrid>
+      <HomeGrid></HomeGrid>
     </MainWrapper>
   );
 }
