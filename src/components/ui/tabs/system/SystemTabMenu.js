@@ -181,31 +181,7 @@ const SystemTabMenu = (props) => {
               <div className="hidden md:block">Resources</div>
             </button>
           </li>
-          <li className="mr-0">
-            <button
-              onClick={() => tabClickHandler("people")}
-              className={
-                activeTab == "people"
-                  ? "inline-flex p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group"
-                  : "inline-flex p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
-              }
-            >
-              <svg
-                aria-hidden="true"
-                className={
-                  activeTab == "people"
-                    ? "w-5 h-5 mr-2 text-blue-600 dark:text-blue-500"
-                    : "w-5 h-5 mr-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
-                }
-                fill="currentColor"
-                viewBox="5 0 25 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />{" "}
-              </svg>
-              <div className="hidden md:block">People</div>
-            </button>
-          </li>
+          
         </ul>
       </div>
       <StatsTab location={props.system} activeTab={activeTab} />

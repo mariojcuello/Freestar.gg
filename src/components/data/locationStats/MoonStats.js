@@ -5,7 +5,8 @@ const MoonStats = ({ moon }) => (
       alt={moon.moonSlug}
       className="grid-item flex mb-5 w-[90%] rounded-xl place-self-center"
     />
-    <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-[90%] place-self-center mb-5">
+      <div class="grid-item overflow-x-auto shadow-md rounded-lg h-fit flex justify-center mt-5">
+        <table className="text-md text-left text-gray-500 dark:text-gray-400 w-full place-self-center">
       <tbody>
         {[
           ["Type", moon.type],
@@ -32,7 +33,7 @@ const MoonStats = ({ moon }) => (
           </tr>
         ))}
       </tbody>
-    </table>
+    </table></div>
   </div>
 );
 

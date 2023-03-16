@@ -4,36 +4,38 @@ const PlanetStats = ({ planet }) => {
       <img
         src={`/img/planets/${planet.planetSlug}.png`}
         alt={planet.planetSlug}
-        className="grid-item flex mb-5 w-[90%] rounded-xl place-self-center"
+        className="grid-item flex mb-5 w-[90%] rounded-2xl shadow place-self-center"
       />
-      <table className="text-sm text-left text-gray-500 dark:text-gray-400 w-[90%] place-self-center mb-5">
-        <tbody>
-          {[
-            ["Type", planet.type],
-            ["Gravity", planet.gravity],
-            ["Temperature", planet.temperature],
-            ["Atmosphere", planet.atmosphere],
-            ["Magnetosphere", planet.magnetosphere],
-            ["Fauna", planet.fauna],
-            ["Flora", planet.flora],
-            ["Water", planet.water],
-            ["Outposts", planet.outpostCount],
-          ].map(([title, value]) => (
-            <tr
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-              key={title}
-            >
-              <th
-                scope="row"
-                className="px-6 pt-[0.3rem] pb-[0.3rem] font-bold text-gray-900 whitespace-nowrap dark:text-white"
+      <div class="grid-item overflow-x-auto shadow-md rounded-lg h-fit flex justify-center mt-5">
+        <table className="text-md text-left text-gray-500 dark:text-gray-400 w-full place-self-center">
+          <tbody>
+            {[
+              ["Type", planet.type],
+              ["Gravity", planet.gravity],
+              ["Temperature", planet.temperature],
+              ["Atmosphere", planet.atmosphere],
+              ["Magnetosphere", planet.magnetosphere],
+              ["Fauna", planet.fauna],
+              ["Flora", planet.flora],
+              ["Water", planet.water],
+              ["Outposts", planet.outpostCount],
+            ].map(([title, value]) => (
+              <tr
+                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                key={title}
               >
-                {title}
-              </th>
-              <td className="px-6 pt-[0.3rem] pb-[0.3rem]">{value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <th
+                  scope="row"
+                  className="px-6 pt-[0.3rem] pb-[0.3rem] font-bold text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  {title}
+                </th>
+                <td className="px-6 pt-[0.3rem] pb-[0.3rem]">{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

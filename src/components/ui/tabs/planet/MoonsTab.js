@@ -1,7 +1,7 @@
 import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCardWrapper";
 import LocationCard from "../../cards/locationCard/LocationCard";
-import LocationTable from "@/components/data/locationsTable/LocationTable";
 import Link from "next/link";
+import SortingLocationTable from "@/components/data/locationsTable/SortingLocationTable";
 
 const MoonsTab = (props) => {
   const columns = [
@@ -47,11 +47,11 @@ const MoonsTab = (props) => {
   return (
     <div className={props.activeTab == "moons" ? "block" : "hidden"}>
       <div className="hidden md:block">
-        <LocationTable
+        <SortingLocationTable
           columns={columns}
           rows={props.planet.moons}
           className="hidden md:block"
-        ></LocationTable>
+        ></SortingLocationTable>
       </div>
       <div className="block md:hidden">
         <LocationCardWrapper>

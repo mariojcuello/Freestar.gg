@@ -1,3 +1,4 @@
+import Favicon from '@/components/ui/Favicon'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -5,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <title>Freestar.gg</title>
-      <link rel="shortcut icon" href="/favicon.ico " />
+      <Favicon/>
       <body>
         <Main />
         <NextScript />

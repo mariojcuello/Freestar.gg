@@ -6,7 +6,7 @@ import { useMemo } from "react";
 const SortingLocationTable = ({ columns, rows }) => {
   const [activePage, setActivePage] = useState(1);
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState({ order: "asc", orderBy: "id" });
+  const [sort, setSort] = useState({ order: "asc", orderBy: "name" });
   const rowsPerPage = 3;
 
   const filteredRows = useMemo(
@@ -59,7 +59,7 @@ const SortingLocationTable = ({ columns, rows }) => {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
         <thead className="text-s text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {columns.map((column, index) => {
@@ -75,7 +75,7 @@ const SortingLocationTable = ({ columns, rows }) => {
               };
               const isLastColumn = index === columns.length - 1;
               return (
-                <th key={column.accessor} className="px-3 py-3">
+                <th key={column.accessor} className="px-2 py-2">
                   {column.label}
                   {!isLastColumn && (
                     <button

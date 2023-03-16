@@ -1,8 +1,7 @@
 const SystemDesciption = ({ system }) => {
   return (
-    <div>
-      <p dangerouslySetInnerHTML={{ __html: system.description }}></p>
-    </div>
+    <div className="text-lg mx-5 mt-5" dangerouslySetInnerHTML={{ __html: system.description }}/>
+
   );
 };
 
