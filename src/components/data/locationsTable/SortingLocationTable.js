@@ -75,7 +75,7 @@ const SortingLocationTable = ({ columns, rows }) => {
               };
               const isLastColumn = index === columns.length - 1;
               return (
-                <th key={column.accessor} className="px-2 py-2">
+                <th key={column.accessor} className="px-5 py-2">
                   {column.label}
                   {!isLastColumn && (
                     <button

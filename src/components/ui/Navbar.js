@@ -18,7 +18,6 @@ const Navbar = () => {
   const navigation = [
     { name: "Locations", href: "/locations", current: "locations" },
     { name: "Items", href: "/items", current: "items" },
-    { name: "People", href: "/people", current: "people" },
     { name: "Spaceship Builder", href: "/spaceship-builder", current: "ship-builder" },
     { name: "Outpost Builder", href: "/outpost-builder", current: "outpost-builder" },
   ];

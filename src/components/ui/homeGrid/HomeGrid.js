@@ -10,13 +10,6 @@ const HomeGrid = () => {
       slug: "locations",
     },
     {
-      title: "People",
-      description:
-        "Find out more and/or locate the different NPCs of the Starfield universe.",
-      icon: "people",
-      slug: "people",
-    },
-    {
       title: "Items",
       description: "A list of all known items in the Starfield universe. Weapons, armor, modifications and more.",
       icon: "box",
@@ -33,12 +26,6 @@ const HomeGrid = () => {
       description: "A playground for building starbases/colonies. View resources needed to build and more.",
       icon: "base",
       slug: "starbase-builder",
-    },
-    {
-      title: "Quests",
-      description: "A list of all known quests in the Starfield universe.",
-      icon: "scroll",
-      slug: "quests",
     },
   ];
 
@@ -65,7 +52,7 @@ const HomeGrid = () => {
         </p>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         {HOME_GRID_ITEMS.map((item) => (
           <HomeGridCard item={item} key={item.slug} />
         ))}

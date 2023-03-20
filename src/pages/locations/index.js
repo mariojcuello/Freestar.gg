@@ -4,6 +4,8 @@ import LocationCardWrapper from "@/components/ui/cards/locationCard/LocationCard
 import LocationCard from "@/components/ui/cards/locationCard/LocationCard";
 import Search from "@/components/ui/search/Search";
 import SearchModal from "@/components/ui/search/SearchModal";
+import LocationGrid from "@/components/ui/locationGrid/LocationGrid";
+import SubHeading from "@/components/ui/SubHeading";
 
 const POPULAR_SYSTEMS = [
   {
@@ -43,7 +45,9 @@ const POPULAR_SYSTEMS = [
 const SystemPage = () => {
   return (
     <MainWrapper>
-      <Heading>Popular Systems </Heading>
+      <Heading>Locations</Heading>
+      <LocationGrid></LocationGrid>
+      <SubHeading>Popular Systems </SubHeading>
       <LocationCardWrapper>
         {POPULAR_SYSTEMS.map((system) => (
           <LocationCard location={system} key={system.name} />

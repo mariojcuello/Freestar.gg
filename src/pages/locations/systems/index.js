@@ -1,7 +1,5 @@
 import MainWrapper from "@/components/wrappers/MainWrapper";
-import Search from "@/components/ui/search/Search";
 import Heading from "@/components/ui/Heading";
-import { supabase } from "@/pages/api/supabase";
 import Link from "next/link";
 import ContentWrapper from "@/components/wrappers/ContentWrapper";
 import SortingLocationTable from "@/components/data/locationsTable/SortingLocationTable";
@@ -19,18 +17,6 @@ const SystemHome = (props) => {
     { accessor: "planetCount", label: "Planets" },
     { accessor: "moonCount", label: "Moons" },
     { accessor: "outpostCount", label: "Outposts" },
-    {
-      accessor: "water",
-      label: "Water",
-    },
-    {
-      accessor: "flora",
-      label: "Flora",
-    },
-    {
-      accessor: "fauna",
-      label: "Fauna",
-    },
     { accessor: "faction", label: "Faction" },
     {
       accessor: "slug",
@@ -46,11 +32,8 @@ const SystemHome = (props) => {
     },
   ];
 
-  console.log(props.systems);
-
   return (
     <MainWrapper>
-      <Search></Search>
       <Heading>Star Systems </Heading>
       <ContentWrapper>
         <SortingLocationTable
