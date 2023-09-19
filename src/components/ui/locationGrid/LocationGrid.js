@@ -17,15 +17,15 @@ const LocationGrid = () => {
       icon: "moon",
       slug: "/locations/moons",
     },
-    {
-      title: "Outposts",
-      icon: "base",
-      slug: "/locations/outposts",
-    },
+    // {
+    //   title: "Outposts",
+    //   icon: "base",
+    //   slug: "/locations/outposts",
+    // },
   ];
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap:5 md:gap-20 md:grid-cols-3">
         {LOCATION_GRID_ITEMS.map((item) => (
           <LocationGridCard item={item} key={item.slug} />
         ))}

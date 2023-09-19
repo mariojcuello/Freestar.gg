@@ -7,14 +7,16 @@ const LocationGridCard = (props) => {
       href={props.item.slug}
     >
       <div className="flex">
-        <img
-          className="h-12 w-12 text-pink-500 flex mx-auto my-3 align-middle"
-          src={`/svg/${props.item.icon}.svg`}
-          alt={props.item.title}
-        />
-        <h2 className="mt-5 mx-auto text-3xl font-bold text-white grid-item align-middler">
-          {props.item.title}
-        </h2>
+        <div className="flex mx-auto gap-4">
+          <img
+            className="h-12 w-12 text-pink-500 flex  my-3 pt-1 align-middle"
+            src={`/svg/${props.item.icon}.svg`}
+            alt={props.item.title}
+          />
+          <h2 className="mt-5 text-3xl font-bold text-white grid-item align-middler">
+            {props.item.title}
+          </h2>
+        </div>
       </div>
     </Link>
   );
