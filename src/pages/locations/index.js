@@ -26,7 +26,7 @@ const POPULAR_SYSTEMS = [
   },
   {
     name: "Narion",
-    systemSlug: "proxima-centauri",
+    systemSlug: "narion",
     planetCount: 2,
     moonCount: 0,
     outpostCount: 0,
